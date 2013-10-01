@@ -52,3 +52,42 @@ BFI(Q, alpha=0.98)
 lines(BFI(Q, alpha=0.98, ReturnQbase=TRUE)$Qbase, lty=2)
 lines(BFI(Q, alpha=0.925, ReturnQbase=TRUE)$Qbase, lty=2, col=4)
 
+
+########## Example with Missing Values ##############
+
+
+Q <- c(NA,5,7,108,117,57,36,26,95,1169,308,
+       144,89,62,48,40,35,73,82,342,393,310,
+       275,260,245,256,141,119,934,382,158,96,
+       122,103,83,67,148,NA,366,161,119,82,330,294,
+       261,266,153,247,703,498,286,163,124,85,94,
+       81,62,47,37,30,26,24,24,22,21,20,19,18,18,17,16,NA,20,19,18,18,NA)
+
+BFI(Q, alpha=0.98)
+
+$BFI
+# [1] 0.1411197
+# 
+# $alpha
+# [1] 0.98
+# 
+# $FractionUsed
+# [1] 0.9452055
+
+
+# Explanation of FractionUsed
+
+#   Number of daily values
+sum(!is.na(Q))
+#    73
+
+#   with n.reflect set to 30 (the default), the final 4 values between the NA can not be used
+#   therefore the faction used is
+(73-4)/73
+
+# The BFI is the weighted average of the BFI of the flow segments with non-missing values
+
+(length(Q[2:37])*BFI(Q[2:37], alpha=0.98)$BFI + length(Q[39:71])*BFI(Q[39:71], alpha=0.98)$BFI)/(length(Q[2:37]) + length(Q[39:71]))
+# [1] 0.1411197
+
+
