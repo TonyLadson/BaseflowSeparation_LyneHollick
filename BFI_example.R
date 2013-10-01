@@ -90,4 +90,13 @@ sum(!is.na(Q))
 (length(Q[2:37])*BFI(Q[2:37], alpha=0.98)$BFI + length(Q[39:71])*BFI(Q[39:71], alpha=0.98)$BFI)/(length(Q[2:37]) + length(Q[39:71]))
 # [1] 0.1411197
 
+########## Example with more passes ##############
 
+
+url <- "https://raw.github.com/TonyLadson/data/master/data/BassRiver@Loch.csv"
+ca.path <- "C:/Users/TonyLadson/Documents/R/win-library/3.0/RCurl/CurlSSL/cacert.pem"
+Q <- as.vector(unlist(read.csv(textConnection(getURL(url, cainfo=ca.path)), header=FALSE)))
+
+plot(Q, type='l')
+lines(BFI(Q, ReturnQbase=TRUE, passes=3)$Qbase, lty=2)
+lines(BFI(Q, ReturnQbase=TRUE, passes=9)$Qbase, lty=2, col=4)
