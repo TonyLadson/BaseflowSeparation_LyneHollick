@@ -1,6 +1,6 @@
 #########################################################################################
 #
-# Example for Baseflow seperation using the Lyne and Hollick filter
+# Example for Baseflow separation using the Lyne and Hollick filter
 #
 # tony.ladson@gmail.com
 # 1 Oct 2013
