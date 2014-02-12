@@ -8,4 +8,7 @@ Ladson, A. R., Brown, R. Neal, B. and Nathan, R. (2013) A standard approach to b
 Lyne and Hollick filter.  Australian Journal of Water Resources 17(1): 25-34.
 http://dx.doi.org/10.7158/W12-028.2013.17.1
 
+I've written a blog related to this at:
+http://tonyladson.wordpress.com/2013/10/01/a-standard-approach-to-baseflow-separation-using-the-lyne-and-hollick-filter/
+
 
